@@ -1,3 +1,4 @@
+import Storage from 'react-native-simple-store';
 import React, { Component } from 'react';
 import { BackHandler } from 'react-native';
 import { connect } from "react-redux";
@@ -5,9 +6,20 @@ import { addNavigationHelpers } from 'react-navigation';
 
 import AppNavigator from './appNavigator';
 
+import Login from '../containers/Login';
+import Splash from '../containers/Splash';
+
 
 class AppRoot extends React.Component {
 
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            viewToRender: (<Splash/>)
+        };
+    }
 
     componentDidMount() {
         // Subscribe to the hardware back button press event on TODO Android.
@@ -22,36 +34,38 @@ class AppRoot extends React.Component {
         });
     }
 
-    //LUIS CLEAN
-
-    // The render function should be pure, meaning that it does not modify component state,
-    // it returns the same result each time it's invoked, and it does not directly interact with the browser.
-    // If you need to interact with the browser, perform your work in componentDidMount()
-    // or the other lifecycle methods instead. Keeping render() pure makes components easier to think about.
-    // You can also return null or false to indicate that you don't want anything rendered.
-    // When returning null or false, ReactDOM.findDOMNode(this) will return null.
     render() {
         const {nav, dispatch} = this.props;
+        let returnContainer = null;
         // Are we authenticated?
-        if (true) {
-            // Render the root navigator.
-            return (
-                <AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />
-            );
-        } else {
-            // Render the login screen.
-            return (
-                <Login/>
-            );
-        }
+        Storage.get('user').then((user) => {
+            if (user) {
+
+                // this.props.userLoginSuccess(user.token, user.user);
+
+                // const props = {
+                //     firstName: user.first_name,
+                //     lastName: user.last_name,
+                //     email: user.email,
+                // };
+                // this.context.analytics.setUserId(user.id, props);
+
+                // Render the root navigator.
+                this.setState({
+                    viewToRender: (<AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />)
+                })
+            } else {
+                // Render the login screen.
+                this.setState({
+                    viewToRender: (<Login/>)
+                })
+            }
+        });
+
+        return (this.state.viewToRender);
+
     }
 }
-
-
-// AppNavigation.propTypes = {
-//   dispatch: PropTypes.func.isRequired,
-//   nav: PropTypes.object.isRequired,
-// };
 
 const mapStateToProps = state => ({
   nav: state.nav,

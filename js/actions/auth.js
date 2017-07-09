@@ -165,6 +165,7 @@ export function loginFacebook(token) {
                     body: JSON.stringify({
                         access_token: token,
                         app_version: Config.APP_VERSION_NAME,
+                        branch_data: 'installParams',
                         // branch_data: installParams,
 
                     })

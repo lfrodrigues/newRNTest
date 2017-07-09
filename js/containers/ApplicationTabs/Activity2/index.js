@@ -6,6 +6,8 @@ import {
 } from 'react-native';
 import styles from './styles';
 
+import Icon from 'react-native-vector-icons/MaterialIcons';
+
 
 export default class Activity2 extends Component {
 

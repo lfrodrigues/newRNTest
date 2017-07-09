@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import { Text, Image, View, ActivityIndicator, Alert } from 'react-native';
-// import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import { LoginManager, AccessToken } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-// import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
 
 import ICON from '../../images/icon.png';
 import styles from './styles';
@@ -12,8 +11,6 @@ import SignUpButton from '../../components/signUpButton/SignUpButton';
 import BottomButton from '../../components/BottomButton/bottomButton';
 import { loginFacebook, cleanErrors } from '../../actions/auth';
 
-
-// const { pushRoute } = navigationActions;
 
 class LoginView extends Component {
     static propTypes = {
@@ -44,24 +41,24 @@ class LoginView extends Component {
         this.setState({ loginState: nextProps.isFetching });
     }
 
-    // getRemoteFacebookAccessToken = () => {
-    //     return AccessToken.getCurrentAccessToken().then((data) => {
-    //         return data && data.accessToken ? data.accessToken.toString() : null;
-    //     });
-    // };
+    getRemoteFacebookAccessToken = () => {
+        return AccessToken.getCurrentAccessToken().then((data) => {
+            return data && data.accessToken ? data.accessToken.toString() : null;
+        });
+    };
 
     login = () => {
-        // LoginManager.logInWithReadPermissions(['email', 'public_profile'])
-        //     .then(() => {
-        //         this.getRemoteFacebookAccessToken()
-        //             .then((token) => {
-        //                 if (token) {
-        //                     this.props.loginFacebook(token);
-        //                 } else {
-        //                     this.setState({ loginState: false });
-        //                 }
-        //             });
-        //     });
+        LoginManager.logInWithReadPermissions(['email', 'public_profile'])
+            .then(() => {
+                this.getRemoteFacebookAccessToken()
+                    .then((token) => {
+                        if (token) {
+                            this.props.loginFacebook(token);
+                        } else {
+                            this.setState({ loginState: false });
+                        }
+                    });
+            });
     };
 
     signup = () => {

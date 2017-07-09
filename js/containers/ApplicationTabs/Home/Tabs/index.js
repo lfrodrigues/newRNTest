@@ -18,6 +18,7 @@ class Tabs extends Component {
     static propTypes = {
         style: View.propTypes.style,
     };
+    
     constructor(props) {
         super(props);
         this.state = {

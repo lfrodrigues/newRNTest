@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
+
+import { connect } from 'react-redux';
 import {
-    Alert,
-    Linking,
+    View,
+    Text,
     Image
 } from 'react-native';
-import { connect } from 'react-redux';
 
 import Tabs from './Tabs';
 import styles from './styles';
-
 
 
 class Home extends Component {
@@ -25,7 +25,7 @@ class Home extends Component {
         drawerLabel: 'Home',
         drawerIcon: ({ tintColor }) => (
             <Image
-                source={require('../../../images/home.png')}
+                source={require('../../../images/tablet.png')}
                 style={[styles.tabIcon, {tintColor: 'black'}]}
             />
         ),

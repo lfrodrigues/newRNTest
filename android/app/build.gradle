@@ -72,6 +72,9 @@ import com.android.build.OutputFile
  * ]
  */
 
+// load the gradle configuration for react native configuration module
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 apply from: "../../node_modules/react-native/react.gradle"
 
 /**
@@ -133,6 +136,9 @@ android {
 }
 
 dependencies {
+    compile project(':react-native-fbsdk')
+    compile project(':react-native-vector-icons')
+    compile project(':react-native-config')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
