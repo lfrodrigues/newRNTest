@@ -24,7 +24,7 @@ const DrawerButton = ({ navigation }) => (
 );
 
 DrawerButton.propTypes = {
-  navigation: React.PropTypes.object.isRequired,
+    navigation: React.PropTypes.object.isRequired,
 };
 
 export default DrawerButton;

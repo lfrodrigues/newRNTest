@@ -60,12 +60,13 @@ class AppRoot extends React.Component {
         });
 
         return (this.state.viewToRender);
-
     }
 }
 
-const mapStateToProps = state => ({
-  nav: state.nav,
-});
+function mapStateToProps(state) {
+    return {
+        nav: state.nav,
+    };
+}
 
 export default connect(mapStateToProps)(AppRoot);

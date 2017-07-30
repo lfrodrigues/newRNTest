@@ -1,10 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { DrawerItems, TouchableItem } from 'react-navigation';
+import { DrawerItems } from 'react-navigation';
 import {
     View,
-    Text
+    Text,
+    TouchableHighlight
 } from 'react-native';
+
+// eventually we can adapt code for logout when this is merged https://github.com/react-community/react-navigation/pull/2183
 
 class DrawerContent extends React.Component {
 
@@ -18,28 +21,11 @@ class DrawerContent extends React.Component {
                     ... that can be changed!
                 </Text>
                 <DrawerItems {...this.props} />
-                <TouchableItem
-                    key={route.key}
-                    onPress={() => {
-                        onItemPress({ route, focused });
-                    }}
-                    delayPressIn={0}
-                    >
-                    <View style={[styles.item, { backgroundColor }]}>
-                        {icon
-                        ? <View
-                            style={[styles.icon, focused ? null : styles.inactiveIcon]}
-                            >
-                            {icon}
-                            </View>
-                        : null}
-                        {typeof label === 'string'
-                        ? <Text style={[styles.label, { color }, labelStyle]}>
-                            {label}
-                            </Text>
-                        : label}
-                    </View>
-                    </TouchableItem>
+                <TouchableHighlight onPress={() => {alert('asdasd')}}>
+                    <Text>
+                        Logout
+                    </Text>
+                </TouchableHighlight>
             </View>
         );
     }
