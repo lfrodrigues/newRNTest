@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import {
     COLOR_LIGHT_GREY,
     PRIMARY_COLOR
-} from '../../../styles/colors';
+} from '../../styles/colors';
 
 export default StyleSheet.create({
     container: {
@@ -21,5 +21,10 @@ export default StyleSheet.create({
     h1: {
         color: PRIMARY_COLOR,
         fontSize: 20
+    },
+    icon: {
+        fontSize: 60,
+        color: PRIMARY_COLOR,
+        marginBottom: 10
     }
 });

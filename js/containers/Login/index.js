@@ -70,10 +70,10 @@ class LoginView extends Component {
     }
 
     render() {
-        const renderSence = (
+        const renderScene = (
             <View style={styles.container}>
                 <View style={styles.iconContainer}>
-                    <Image source={ICON} style={styles.icon}/>
+                    <Image source={ICON} style={styles.icon} />
                 </View>
                 <Text style={styles.title}>
                     My Store Foo
@@ -81,8 +81,8 @@ class LoginView extends Component {
                 {!this.state.loginState ?
                     <View style={styles.buttonContainer}>
                         <View>
-                            <FacebookButton onPress={this.login}/>
-                            <SignUpButton onPress={this.signup}/>
+                            <FacebookButton onPress={this.login} />
+                            <SignUpButton onPress={this.signup} />
                         </View>
                         <View style={styles.bottom}>
                             <BottomButton onPress={this.loginEmail}
@@ -104,7 +104,7 @@ class LoginView extends Component {
             Alert.alert('Authentication Error', 'You session is not valid. Please Login again');
             this.props.cleanErrors();
         }
-        return renderSence;
+        return renderScene;
     }
 }
 function mapDispatchToProps(dispatch) {

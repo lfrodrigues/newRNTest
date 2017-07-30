@@ -1,20 +1,13 @@
+import React from 'react';
+import { Platform } from 'react-native';
 import { DrawerNavigator, StackNavigator } from 'react-navigation';
-import {  Button } from 'react-native';
-
-import React, { Component } from 'react';
-import {
-    View,
-    Text,
-    Image,
-    Platform
-} from 'react-native';
 
 import DrawerButton from './drawerButton';
 import DrawerContent from './drawerContent';
 
-import Home from '../containers/ApplicationTabs/Home';
-import Activity2 from '../containers/ApplicationTabs/Activity2';
-import PopupCard from '../containers/ApplicationTabs/PopupCard';
+import Home from '../containers/Home';
+import Activity2 from '../containers/Activity2';
+import PopupCard from '../containers/PopupCard';
 
 
 const HomeNavigator = StackNavigator({

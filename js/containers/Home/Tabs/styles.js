@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import {
     PRIMARY_COLOR,
     COLOR_WHITE
-} from '../../../../styles/colors';
+} from '../../../styles/colors';
 
 export default StyleSheet.create({
     container: {

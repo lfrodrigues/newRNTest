@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { View, Text, Image } from 'react-native';
+import { Image, Alert, Linking } from 'react-native';
 import { connect } from 'react-redux';
 
 
@@ -21,9 +21,8 @@ class Home extends Component {
     static navigationOptions = {
         drawerLabel: 'Home',
         drawerIcon: ({ tintColor }) => (
-            <Image
-                source={require('../../../images/tablet.png')}
-                style={[styles.tabIcon, {tintColor: 'black'}]}
+            <Image source={require('../../images/tablet.png')}
+                style={[styles.tabIcon, { tintColor: 'black' }]}
             />
         ),
     };

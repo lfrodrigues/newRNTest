@@ -1,7 +1,7 @@
 import Storage from 'react-native-simple-store';
-import React, { Component } from 'react';
+import React from 'react';
 import { BackHandler } from 'react-native';
-import { connect } from "react-redux";
+import { connect } from 'react-redux';
 import { addNavigationHelpers } from 'react-navigation';
 
 import AppNavigator from './appNavigator';

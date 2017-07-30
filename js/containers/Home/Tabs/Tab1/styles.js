@@ -3,8 +3,8 @@ import {
     COLOR_LIGHT_GREY,
     PRIMARY_COLOR,
     COLOR_WHITE
-} from '../../../../../styles/colors';
-import { SCREEN_WIDTH } from '../../../../../styles/base';
+} from '../../../../styles/colors';
+import { SCREEN_WIDTH } from '../../../../styles/base';
 
 export default StyleSheet.create({
     container: {

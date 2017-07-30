@@ -15,7 +15,7 @@ export default class Activity2 extends Component {
         drawerLabel: 'Activity2',
         drawerIcon: ({ tintColor }) => (
             <Image
-                source={require('../../../images/tablet.png')}
+                source={require('../../images/tablet.png')}
                 style={[styles.tabIcon, {tintColor: 'black'}]}
             />
         ),

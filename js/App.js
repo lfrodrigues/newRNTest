@@ -1,14 +1,9 @@
-import React, { Component } from 'react';
-import {
-    View,
-    StatusBar
-} from 'react-native';
+import React from 'react';
+
 import { Provider } from 'react-redux';
 // import codePush from 'react-native-code-push';
 
-import AppStyles from './styles';
 import configureStore from './store';
-// import MainNavigation from './containers/MainNavigation';
 import AnalyticsProvider from './utils/AnalyticsUtils';
 import { DARKER_PRIMARY } from './styles/colors';
 
@@ -22,18 +17,12 @@ import AppNavigation from './AppNavigation';
 const store = configureStore();
 
 
-class App extends Component {
+class App extends React.Component {
     render() {
         return (
             <AnalyticsProvider>
                 <Provider store={store}>
-                    {/*<View style={AppStyles.container}>
-                        <StatusBar backgroundColor={DARKER_PRIMARY}
-                            barStyle="light-content"
-                        />*/}
-                        {/*<MainNavigation/>*/}
-                        <AppNavigation/>
-                    {/*</View>*/}
+                    <AppNavigation />
                 </Provider>
             </AnalyticsProvider>
         );

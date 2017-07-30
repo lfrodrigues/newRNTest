@@ -34,7 +34,7 @@ class SplashPage extends Component {
     render() {
         return (
             <View style={SplashStyles.container}>
-                <Image source={ICON}/>
+                <Image source={ICON} />
                 <Text style={SplashStyles.title}>My Store Foo</Text>
             </View>
         );

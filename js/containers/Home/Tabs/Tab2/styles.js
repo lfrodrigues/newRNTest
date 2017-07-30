@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 import {
     COLOR_LIGHT_GRAY,
     PRIMARY_COLOR
-} from '../../../../../styles/colors';
+} from '../../../../styles/colors';
 
 export default StyleSheet.create({
     container: {
