@@ -12,7 +12,7 @@ import configureStore from './store';
 import AnalyticsProvider from './utils/AnalyticsUtils';
 import { DARKER_PRIMARY } from './styles/colors';
 
-import AppNavigation from './AppNavigation'
+import AppNavigation from './AppNavigation';
 
 
 // const codePushOptions = {

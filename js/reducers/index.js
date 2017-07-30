@@ -7,8 +7,6 @@ import form from './forms';
 import navReducer from './navReducer';
 
 const appReducers = combineReducers({
-    // globalNavigation: globalNavigationReducer,
-    // tabs,
     modals,
     form,
     nav: navReducer,

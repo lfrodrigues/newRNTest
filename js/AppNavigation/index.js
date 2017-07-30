@@ -12,22 +12,21 @@ import Splash from '../containers/Splash';
 
 class AppRoot extends React.Component {
 
-
     constructor(props) {
         super(props);
 
         this.state = {
-            viewToRender: (<Splash/>)
+            viewToRender: (<Splash />)
         };
     }
 
     componentDidMount() {
         // Subscribe to the hardware back button press event on TODO Android.
         BackHandler.addEventListener('hardwareBackPress', () => {
-            let {dispatch, nav} = this.props;
+            const {dispatch, nav} = this.props;
             // Close the drawer if necessary.
             if (nav.routes[nav.index].key === 'DrawerOpen') {
-                dispatch({type: 'Navigate', routeName: 'DrawerClose'});
+                dispatch({type: 'Navigation/NAVIGATE', routeName: 'DrawerClose'});
                 return true;
             }
             return false;
@@ -36,11 +35,9 @@ class AppRoot extends React.Component {
 
     render() {
         const {nav, dispatch} = this.props;
-        let returnContainer = null;
         // Are we authenticated?
         Storage.get('user').then((user) => {
             if (user) {
-
                 // this.props.userLoginSuccess(user.token, user.user);
 
                 // const props = {
@@ -53,12 +50,12 @@ class AppRoot extends React.Component {
                 // Render the root navigator.
                 this.setState({
                     viewToRender: (<AppNavigator navigation={addNavigationHelpers({ dispatch, state: nav })} />)
-                })
+                });
             } else {
                 // Render the login screen.
                 this.setState({
-                    viewToRender: (<Login/>)
-                })
+                    viewToRender: (<Login />)
+                });
             }
         });
 
@@ -71,4 +68,4 @@ const mapStateToProps = state => ({
   nav: state.nav,
 });
 
-export default  connect(mapStateToProps)(AppRoot);
+export default connect(mapStateToProps)(AppRoot);

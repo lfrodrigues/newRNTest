@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
+import { View, Text, Image } from 'react-native';
 import { connect } from 'react-redux';
-import {
-    View,
-    Text,
-    Image
-} from 'react-native';
+
 
 import Tabs from './Tabs';
 import styles from './styles';
@@ -14,11 +11,11 @@ import styles from './styles';
 class Home extends Component {
 
     static propTypes = {
-        outdatedApp: React.PropTypes.bool
+        outdatedApp: PropTypes.bool
     };
 
     static contextTypes = {
-        analytics: React.PropTypes.object
+        analytics: PropTypes.object
     };
 
     static navigationOptions = {

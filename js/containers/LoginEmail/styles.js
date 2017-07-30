@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: PRIMARY_COLOR,
     },
-    contentContaier: {
+    contentContainer: {
         padding: 30,
     },
     registerButton: {

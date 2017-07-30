@@ -10,22 +10,17 @@ import {
 } from '../styles/colors';
 
 const styles = StyleSheet.create({
-  icon: {
+    icon: {
         fontSize: 30,
         color: PRIMARY_COLOR
-  },
+    },
 })
 
 // style={styles.buttonStyle}
 const DrawerButton = ({ navigation }) => (
-  <TouchableOpacity
-    onPress={() => navigation.navigate('DrawerOpen')}
-  >
-    <Icon
-      name="menu"
-      style={styles.icon}
-    />
-  </TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('DrawerOpen')}>
+        <Icon name="menu" style={styles.icon} />
+    </TouchableOpacity>
 );
 
 DrawerButton.propTypes = {

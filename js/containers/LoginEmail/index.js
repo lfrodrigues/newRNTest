@@ -122,7 +122,7 @@ class LoginEmail extends Component {
                                                     }}
                     />
                     <ScrollView>
-                        <View style={styles.contentContaier}>
+                        <View style={styles.contentContainer}>
                             <Form ref={(c) => { this.form = c; }}
                                 type={registerForm}
                                 value={this.props.formData}

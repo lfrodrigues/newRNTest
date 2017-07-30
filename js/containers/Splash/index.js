@@ -31,7 +31,6 @@ class SplashPage extends Component {
 
     }
 
-
     render() {
         return (
             <View style={SplashStyles.container}>
