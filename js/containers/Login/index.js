@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
-import { Text, Image, View, ActivityIndicator, Alert } from 'react-native';
-import { LoginManager, AccessToken } from 'react-native-fbsdk';
+import { ActivityIndicator, Alert, Image, Text, View } from 'react-native';
+import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { NavigationActions } from 'react-navigation';
+import { cleanErrors, loginFacebook } from '../../actions/auth';
 
 import ICON from '../../images/icon.png';
 import styles from './styles';
 import FacebookButton from '../../components/facebookButton/facebookButton';
 import SignUpButton from '../../components/signUpButton/SignUpButton';
 import BottomButton from '../../components/BottomButton/bottomButton';
-import { loginFacebook, cleanErrors } from '../../actions/auth';
 
 
 class LoginView extends Component {
@@ -54,6 +55,9 @@ class LoginView extends Component {
                     .then((token) => {
                         if (token) {
                             this.props.loginFacebook(token);
+                            // TODO: this should be in the proper place
+                            const { dispatch } = this.props;
+                            dispatch(NavigationActions.navigate({ routeName: 'Home' }));
                         } else {
                             this.setState({ loginState: false });
                         }
@@ -67,7 +71,7 @@ class LoginView extends Component {
 
     loginEmail = () => {
         // this.props.dispatch(pushRoute({ key: 'loginEmail' }, 'global'));
-    }
+    };
 
     render() {
         const renderScene = (
@@ -94,7 +98,7 @@ class LoginView extends Component {
                     </View>
                     :
                     <View style={styles.activityIndicatorContainer}>
-                        <ActivityIndicator size="large" color={styles.activity}/>
+                        <ActivityIndicator size="large" color={styles.activity} />
                         <Text style={styles.h1}>Logging in...</Text>
                     </View>
                     }

@@ -8,6 +8,8 @@ import DrawerContent from './drawerContent';
 import Home from '../containers/Home';
 import Activity2 from '../containers/Activity2';
 import PopupCard from '../containers/PopupCard';
+import Splash from '../containers/Splash';
+import Login from '../containers/Login';
 
 import styles from './styles';
 
@@ -15,23 +17,39 @@ import styles from './styles';
 const HomeNavigator = StackNavigator({
     Home: {
         screen: Home,
-
-
-        navigationOptions: ({ navigation }) => ({
-            title: 'Home',
-            headerLeft: <DrawerButton navigation={navigation} />,
-            drawerLabel: 'Home',
-            drawerIcon: ({ tintColor }) => {
-                return (
-                    <Image source={require('../images/tablet.png')}
+        navigationOptions: ({ navigation }) => {
+            return ({
+                title: 'Home',
+                headerLeft: <DrawerButton navigation={navigation} />,
+                drawerLabel: 'Home',
+                drawerIcon: ({ tintColor }) => {
+                    return (
+                        <Image source={require('../images/tablet.png')}
                         style={[styles.tabIcon, { tintColor: 'black' }]}
-                    />
-                );
-            }
-        }),
+                        />
+                    );
+                }
+            });
+        },
     },
     PopupCard: {
         screen: PopupCard,
+    },
+    Activity2: {
+        screen: Activity2,
+        navigationOptions: ({ navigation }) => {
+            return ({
+                title: 'Activity 2',
+                drawerLabel: 'Activity 2 as a screen',
+                drawerIcon: ({ tintColor }) => {
+                    return (
+                        <Image source={require('../images/tablet.png')}
+                           style={[styles.tabIcon, { tintColor: 'black' }]}
+                        />
+                    );
+                }
+            });
+        },
     },
 }, {
     initialRouteName: 'Home',
@@ -43,18 +61,20 @@ const HomeNavigator = StackNavigator({
 const Activity2Navigator = StackNavigator({
     Activity2: {
         screen: Activity2,
-        navigationOptions: ({ navigation }) => ({
-            title: 'Activity 2',
-            headerLeft: <DrawerButton navigation={navigation} />,
-            drawerLabel: 'Activity 2',
-            drawerIcon: ({ tintColor }) => {
-                return (
-                    <Image source={require('../images/tablet.png')}
+        navigationOptions: ({ navigation }) => {
+            return ({
+                title: 'Activity 2',
+                headerLeft: <DrawerButton navigation={navigation} />,
+                drawerLabel: 'Activity 2 as a stack',
+                drawerIcon: ({ tintColor }) => {
+                    return (
+                        <Image source={require('../images/tablet.png')}
                         style={[styles.tabIcon, { tintColor: 'black' }]}
-                    />
-                );
-            }
-        }),
+                        />
+                    );
+                }
+            });
+        },
     },
 }, {
     initialRouteName: 'Activity2',
@@ -68,11 +88,20 @@ const AppNavigator = DrawerNavigator({
         screen: HomeNavigator,
     },
     Activity2: {
+        screen: Activity2,
+    },
+    Activity2Stack: {
         screen: Activity2Navigator,
     },
 }, {
-    contentComponent: DrawerContent
+    contentComponent: DrawerContent,
+});
+
+const LandingNavigation = StackNavigator({
+    Landing: { screen: Splash, navigationOptions: ({ navigation }) => { return ({ header: null }); } },
+    Login: { screen: Login, navigationOptions: ({ navigation }) => { return ({ header: null }); } },
+    AppNavigation: { screen: AppNavigator, navigationOptions: ({ navigation }) => { return ({ header: null }); } }
 });
 
 
-export default AppNavigator;
+export default LandingNavigation;
