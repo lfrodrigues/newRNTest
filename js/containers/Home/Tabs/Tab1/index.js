@@ -5,7 +5,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 import { connect } from 'react-redux';
-// import { actions as navigationActions } from 'react-native-navigation-redux-helpers';
+import { NavigationActions } from 'react-navigation';
 
 import styles from './styles';
 
@@ -29,10 +29,8 @@ class Tab1 extends Component {
         return (
             <View style={styles.container}>
                 <View style={styles.buttonWrapper}>
-                    <TouchableOpacity onPress={() => { 
-                        {/*this.props.dispatch(pushRoute({ key: 'cta' }, 'global')); */}
-                        }}
-                                        style={styles.button}
+                    <TouchableOpacity onPress={() => { this.props.dispatch(NavigationActions.navigate({ routeName: 'PopupCard' })); }}
+                        style={styles.button}
                     >
                         <Text style={styles.h1}>
                             CTA

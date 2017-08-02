@@ -25,6 +25,7 @@ class Home extends Component {
                 style={[styles.tabIcon, { tintColor: 'black' }]}
             />
         ),
+        title: 'luis',
     };
 
     componentDidMount() {

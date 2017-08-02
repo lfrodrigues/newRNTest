@@ -42,7 +42,10 @@ class DrawerContent extends React.Component {
                 <Text style={styles.userEmail}>
                     {this.props.authEmail}
                 </Text>
+                
                 <DrawerItems {...this.props} />
+
+
                 <TouchableHighlight onPress={() => { this.sendFeedbackEmail(); }}>
                     <Text>
                         Send Feedback
