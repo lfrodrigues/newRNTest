@@ -17,7 +17,11 @@ const styles = StyleSheet.create({
         fontSize: 16,
         color: COLOR_WHITE,
         marginTop: 3
-    }
+    },
+    tabIcon: {
+        width: 24,
+        height: 24,
+    },
 });
 
 export { styles as default };
